@@ -4,7 +4,7 @@
 //
 //  Created by Wenchao Ding on 29/1/15.
 //  Copyright © 2016 Wenchao Ding. All rights reserved.
-// 
+//
 //  https://github.com/WenchaoD
 //
 //  FSCalendar is a superior awesome calendar control with high performance, high customizablility and very simple usage.
@@ -290,13 +290,13 @@ IB_DESIGNABLE
  * The locale of month and weekday symbols. Change it to display them in your own language.
  *
  * e.g. To display them in Chinese:
- * 
+ *
  *    calendar.locale = [NSLocale localeWithLocaleIdentifier:@"zh-CN"];
  */
 @property (copy, nonatomic) NSLocale *locale;
 
 /**
- * The scroll direction of FSCalendar. 
+ * The scroll direction of FSCalendar.
  *
  * e.g. To make the calendar scroll vertically
  *
@@ -305,7 +305,7 @@ IB_DESIGNABLE
 @property (assign, nonatomic) FSCalendarScrollDirection scrollDirection;
 
 /**
- * The scope of calendar, change scope will trigger an inner frame change, make sure the frame has been correctly adjusted in 
+ * The scope of calendar, change scope will trigger an inner frame change, make sure the frame has been correctly adjusted in
  *
  *    - (void)calendar:(FSCalendar *)calendar boundingRectWillChange:(CGRect)bounds animated:(BOOL)animated;
  */
@@ -318,8 +318,8 @@ IB_DESIGNABLE
  
  e.g.
  
-    UIPanGestureRecognizer *scopeGesture = [[UIPanGestureRecognizer alloc] initWithTarget:calendar action:@selector(handleScopeGesture:)];
-    [calendar addGestureRecognizer:scopeGesture];
+ UIPanGestureRecognizer *scopeGesture = [[UIPanGestureRecognizer alloc] initWithTarget:calendar action:@selector(handleScopeGesture:)];
+ [calendar addGestureRecognizer:scopeGesture];
  
  @see DIYExample
  @see FSCalendarScopeExample
@@ -400,9 +400,9 @@ IB_DESIGNABLE
  
  e.g.
  
-    UIPanGestureRecognizer *scopeGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.calendar action:@selector(handleScopeGesture:)];
-    scopeGesture.delegate = ...
-    [anyOtherView addGestureRecognizer:scopeGesture];
+ UIPanGestureRecognizer *scopeGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.calendar action:@selector(handleScopeGesture:)];
+ scopeGesture.delegate = ...
+ [anyOtherView addGestureRecognizer:scopeGesture];
  
  @see FSCalendarScopeExample
  
@@ -422,12 +422,12 @@ IB_DESIGNABLE
 /**
  A date object representing the minimum day enable、visible and selectable. (read-only)
  */
-@property (readonly, nonatomic) NSDate *minimumDate;
+@property (strong, nonatomic) NSDate *minimumDate;
 
 /**
  A date object representing the maximum day enable、visible and selectable. (read-only)
  */
-@property (readonly, nonatomic) NSDate *maximumDate;
+@property (strong, nonatomic) NSDate *maximumDate;
 
 /**
  A date object identifying the section of the selected date. (read-only)
@@ -484,7 +484,7 @@ IB_DESIGNABLE
 
 /**
  Register a class for use in creating new calendar cells.
-
+ 
  @param cellClass The class of a cell that you want to use in the calendar.
  @param identifier The reuse identifier to associate with the specified class. This parameter must not be nil and must not be an empty string.
  */
@@ -492,7 +492,7 @@ IB_DESIGNABLE
 
 /**
  Returns a reusable calendar cell object located by its identifier.
-
+ 
  @param identifier The reuse identifier for the specified cell. This parameter must not be nil.
  @param date The specific date of the cell.
  @return A valid FSCalendarCell object.
@@ -501,7 +501,7 @@ IB_DESIGNABLE
 
 /**
  Returns the calendar cell for the specified date.
-
+ 
  @param date The date of the cell
  @param position The month position for the cell
  @return An object representing a cell of the calendar, or nil if the cell is not visible or date is out of range.
